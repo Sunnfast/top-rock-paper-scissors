@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Rock Paper Scissors Console Game</title>
+    <meta charset="UTF-8"/>
+
+</head>
+<body>
+    <script> //JS script for game begins here
+
+        const computerSelection = computerPlay();
+        const playerSelection = playerPlay();
+
+        //assigns the computer a pick for the game
+        function computerPlay() {
+            const compChoice = ['rock', 'paper', 'scissors']
+
+            const randNumber = Math.floor(Math.random() * 3)
+
+            let compPick = compChoice[randNumber];
+            console.log('the computer picked '+ compPick)
+            return compPick;
+            
+        }
+
+        
+        
+        //lets player pick
+        function playerPlay() {
+            playerPick = window.prompt('Please select rock, paper, or scissors to play!')
+
+                if (playerPick.toLowerCase() === 'rock' ||  playerPick.toLowerCase() === 'paper' || playerPick.toLowerCase() === 'scissors')
+                    alert('Great, now let us get started!')
+                else
+                    alert('Please input rock, paper, or scissors.')
+                
+        }
+        console.log(playRound(playerSelection, computerSelection));
+
+        // play one round
+        function playRound(playerSelection, computerSelection) {
+        console.log('test');    
+            // compPick is rock
+            if (computerSelection === 'rock') {
+
+                // vs player picking rock
+                if (playerSelection === 'rock') {
+                    return `Draw! Unsurprisingly, ${playerSelection} against ${computerSelection} does absolutely nothing!`;
+                // vs player picking paper
+                } else if (playerSelection === 'paper') {
+                    return `You win because ${playerSelection} beats ${computerSelection}!`;
+                // vs player picking scissors
+                } else if (playerSelection === 'scissors') {
+                    return `You lose because ${computerSelection} beats ${playerSelection}!`;
+                }
+                console.log('rock')
+            }
+            
+            //compPick is paper
+            else if (computerSelection === 'paper') {
+                // vs player picking paper
+                if (playerSelection === 'paper') {
+                    return `Draw! Unsurprisingly, ${playerSelection} against ${computerSelection} does absolutely nothing!`;
+                // vs player picking scissors
+                } else if (playerSelection === 'scissors') {
+                    return `You win because ${playerSelection} beats ${computerSelection}!`;
+                // vs player picking rock
+                } else if (playerSelection === 'rock') {
+                    return `You lose because ${computerSelection} beats ${playerSelection}!`;
+                }
+                console.log('paper')
+            }
+               
+            //compPick is scissors
+            else if (computerSelection === 'scissors') {
+                // vs player picking scissors
+                if (playerSelection === 'scissors') {
+                    return `Draw! Unsurprisingly, ${playerSelection} against ${computerSelection} does absolutely nothing!`;
+                // vs player picking rock
+                } else if (playerSelection === 'rock') {
+                    return `You win because ${playerSelection} beats ${computerSelection}!`;
+                // vs player picking paper
+                } else if (playerSelection === 'paper') {
+                    return `You lose because ${computerSelection} beats ${playerSelection}!`;
+                }
+                console.log('scissors')   
+            }
+        }
+            
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+
+
+
+
+
+
+</html>
