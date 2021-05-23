@@ -6,19 +6,75 @@
 
 </head>
 <body>
+Please open the browser console to play the game.
     <script> //JS script for game begins here
 
-        const computerSelection = computerPlay();
-        const playerSelection = playerPlay();
+        
 
+        let playerScore = 0;
+        let computerScore = 0;
+
+    game()
+
+    function game() {
+
+        // full gameplay 'loop': plays five times
+        let computerSelection = computerPlay();
+        let playerSelection = playerPlay();
+        playRound(playerSelection, computerSelection);
+        keepScore(playerScore, computerScore)
+
+        computerSelection = computerPlay();
+        playerSelection = playerPlay();
+        playRound(playerSelection, computerSelection);
+        keepScore(playerScore, computerScore)
+
+        computerSelection = computerPlay();
+        playerSelection = playerPlay();
+        playRound(playerSelection, computerSelection);
+        keepScore(playerScore, computerScore)
+
+        computerSelection = computerPlay();
+        playerSelection = playerPlay();
+        playRound(playerSelection, computerSelection);
+        keepScore(playerScore, computerScore)
+
+        computerSelection = computerPlay();
+        playerSelection = playerPlay();
+        playRound(playerSelection, computerSelection);
+        keepScore(playerScore, computerScore)
+
+        // gives the final score of the game
+        gameOutcome(playerScore, computerScore);
+        
+        
+    }
+
+    // calculates who wins the best of five
+    function gameOutcome(playerScore, computerScore) {
+            if (playerScore > computerScore)
+                console.log('You won the best out of five games!')
+            else if (playerScore < computerScore)
+                console.log('Too bad! You lost the best of five games, beter luck next time!')
+            else if (playerScore == computerScore)
+                console.log('A tie! This is pretty rare.')
+    }
+
+    // keeps score during the game
+    function keepScore(playerScore, computerScore) {
+        console.log('You have currently won '+ playerScore + ' games',', and the computer has won ' + computerScore + ' games.')
+    }
+
+        
         //assigns the computer a pick for the game
         function computerPlay() {
-            const compChoice = ['rock', 'paper', 'scissors']
+            const compChoice = ["rock", "paper", "scissors"]
 
             const randNumber = Math.floor(Math.random() * 3)
 
             let compPick = compChoice[randNumber];
-            console.log('the computer picked '+ compPick)
+            console.log('The computer has decided what it is going to use.')
+            
             return compPick;
             
         }
@@ -29,67 +85,83 @@
         function playerPlay() {
             playerPick = window.prompt('Please select rock, paper, or scissors to play!')
 
-                if (playerPick.toLowerCase() === 'rock' ||  playerPick.toLowerCase() === 'paper' || playerPick.toLowerCase() === 'scissors')
+                if (playerPick.toLowerCase() === "rock") //||  playerPick.toLowerCase() === "paper" || playerPick.toLowerCase() === "scissors")
                     alert('Great, now let us get started!')
+                  
                 else
                     alert('Please input rock, paper, or scissors.')
                 
+            console.log(playerPick)
+                
+                return playerPick
+                
         }
-        playRound(playerSelection, computerSelection);
+
+    
 
         // play one round
-        function playRound(playerSelection, computerSelection) {
-        console.log('test');    
+        function playRound(playerSelection, computerSelection) {  
             // compPick is rock
-            if (computerSelection === 'rock') {
+            console.log('Rock, paper, scissors.... shoot!')
 
+            if (computerSelection === "rock") {
+ 
                 // vs player picking rock
-                if (playerSelection === 'rock') {
-                    console.log("Draw.")
+                if (playerSelection === "rock") {
                     console.log(`Draw! Unsurprisingly, ${playerSelection} against ${computerSelection} does absolutely nothing!`);
-                    console.log("Draw.")
                 // vs player picking paper
-                } else if (playerSelection === 'paper') {
+                } else if (playerSelection === "paper") {
                     console.log(`You win because ${playerSelection} beats ${computerSelection}!`);
+                    playerScore++
                 // vs player picking scissors
-                } else if (playerSelection === 'scissors') {
+                } else if (playerSelection === "scissors") {
                     console.log(`You lose because ${computerSelection} beats ${playerSelection}!`);
+                    computerScore++
                 }
-                console.log('rock')
             }
             
             //compPick is paper
-            else if (computerSelection === 'paper') {
+            else if (computerSelection === "paper") {
                 // vs player picking paper
-                if (playerSelection === 'paper') {
-                    return `Draw! Unsurprisingly, ${playerSelection} against ${computerSelection} does absolutely nothing!`;
+                if (playerSelection === "paper") {
+                    console.log(`Draw! Unsurprisingly, ${playerSelection} against ${computerSelection} does absolutely nothing!`);
                 // vs player picking scissors
-                } else if (playerSelection === 'scissors') {
-                    return `You win because ${playerSelection} beats ${computerSelection}!`;
+                } else if (playerSelection === "scissors") {
+                    console.log(`You win because ${playerSelection} beats ${computerSelection}!`);
+                    playerScore++
                 // vs player picking rock
-                } else if (playerSelection === 'rock') {
-                    return `You lose because ${computerSelection} beats ${playerSelection}!`;
+                } else if (playerSelection === "rock") {
+                    console.log(`You lose because ${computerSelection} beats ${playerSelection}!`);
+                    computerScore++
                 }
-                console.log('paper')
+                
             }
                
             //compPick is scissors
-            else if (computerSelection === 'scissors') {
+            else if (computerSelection === "scissors") {
                 // vs player picking scissors
-                if (playerSelection === 'scissors') {
-                    return `Draw! Unsurprisingly, ${playerSelection} against ${computerSelection} does absolutely nothing!`;
+                if (playerSelection === "scissors") {
+                    console.log(`Draw! Unsurprisingly, ${playerSelection} against ${computerSelection} does absolutely nothing!`);
                 // vs player picking rock
-                } else if (playerSelection === 'rock') {
-                    return `You win because ${playerSelection} beats ${computerSelection}!`;
+                } else if (playerSelection === "rock") {
+                    console.log(`You win because ${playerSelection} beats ${computerSelection}!`);
+                    playerScore++
                 // vs player picking paper
-                } else if (playerSelection === 'paper') {
-                    return `You lose because ${computerSelection} beats ${playerSelection}!`;
+                } else if (playerSelection === "paper") {
+                    console.log(`You lose because ${computerSelection} beats ${playerSelection}!`);
+                    computerScore++
                 }
-                console.log('scissors')   
+                 
             }
         }
-            
+    /*
+        if playerScore > computerScore
 
+        if playerScore < computerScore
+
+        if playerScore == computerScore
+         
+        */
                 
 
 
