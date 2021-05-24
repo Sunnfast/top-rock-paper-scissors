@@ -3,5 +3,5 @@ Rock paper scissors game created for The Odin Project ("TOP") created by Simone 
 
 Version 1.0: includes all the functions and specifications required from [The Odin Project prompt](https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/rock-paper-scissors).
 
-Special thanks to [Erica](https://github.com/eching11) and my buddy, [Steven](https://github.com/Lutalo), for helping me troubleshoot and learn JavaScript.
+Special thanks to [Erica](https://github.com/eching11) and [Steven](https://github.com/Lutalo), for helping me troubleshoot and learn JavaScript.
 
